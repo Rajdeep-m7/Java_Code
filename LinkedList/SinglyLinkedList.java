@@ -68,20 +68,36 @@ public class SinglyLinkedList {
         }
         System.out.println("null");
     }
+
+    public void duplicate(){
+        Node node= head;
+        while(node.next != null){
+            if(node.data == node.next.data){
+                node.next= node.next.next;
+            }else{
+                node= node.next;
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         SinglyLinkedList list = new SinglyLinkedList();
 
         list.insert(10);
         list.insert(20);
+        list.insert(20);
+        list.insert(30);
         list.insert(30);
         list.insertAtBeginning(5);
 
         System.out.println("Linked List:");
         list.display();
 
-        list.delete(20);
-        System.out.println("After Deletion:");
+        //list.delete(20);
+        //System.out.println("After Deletion:");
+        list.duplicate();
+        System.out.println("After duplicate Deletion:");
         list.display();
     }
 }
