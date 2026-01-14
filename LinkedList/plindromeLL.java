@@ -73,6 +73,28 @@ public class plindromeLL {
         return false;
     }
 
+    public void reOrder(){
+        if(head == null && head.next== null){
+            return;
+        }
+        Node mid = findMid(head);
+        Node hf= head;
+        Node hs = reverse(mid.next);
+
+        while(hf!= null && hs != null){
+            Node temp = hf.next;
+            hf.next= hs;
+            hf= temp;
+
+            temp = hs.next;
+            hs.next= hf;
+            hs= temp;
+        }
+        if(hf !=null){
+            hf.next=null;
+        }
+    }
+
      public void display() {
         Node temp = head;
         while (temp != null) {
@@ -88,13 +110,15 @@ public class plindromeLL {
 
         list.insertLast(1);
         list.insertLast(2);
-        //list.insertLast(3);
+        list.insertLast(3);
         list.insertLast(2);
         list.insertLast(1);
         //list.insertLast(3);
 
         list.display();
         System.out.println("Is Palindrome? " + list.isPalindrome());
+        list.display();
+        list.reOrder();
         list.display();
     }
 }
