@@ -2,7 +2,7 @@ package SQ;
 
 public class queueMain {
     public static void main(String[] args) throws Exception {
-        customQueue queue = new customQueue();
+        dynamicQueue queue = new dynamicQueue(3);
 
     
         queue.insert(10);
