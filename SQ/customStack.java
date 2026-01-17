@@ -13,10 +13,9 @@ public class customStack {
         this.data= new int[size];
     }
 
-    public boolean push(int item){
+    public boolean push(int item)throws Exception{
         if(isFull()){
-            System.out.println("stack is full");
-            return false;
+            throw new Exception("stack is full");
         }
 
         ptr++;
@@ -38,25 +37,12 @@ public class customStack {
         return data[ptr];
     }
 
-    private boolean isFull(){
+    public boolean isFull(){
         return ptr == data.length-1;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return ptr== -1;
     }
 
-    public static void main(String[] args) throws Exception {
-        customStack stack = new customStack();
-
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.push(40);
-
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-    }
 }
